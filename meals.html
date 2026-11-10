@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meal Ideas · PrepWise</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main class="wrap section">
+    <div class="page-head">
+      <div>
+        <h1>Meal Prep Ideas</h1>
+        <p class="lead">Every recipe keeps for at least 3 days. Add one meal for each slot to build your day.</p>
+      </div>
+      <button id="suggest-btn" class="btn btn-primary">✨ Suggest a day for me</button>
+    </div>
+
+    <div id="target-banner" class="banner"></div>
+
+    <div class="filters card">
+      <div class="chips" id="type-chips">
+        <button class="chip active" data-type="all">All</button>
+        <button class="chip" data-type="breakfast">🌅 Breakfast</button>
+        <button class="chip" data-type="lunch">☀️ Lunch</button>
+        <button class="chip" data-type="dinner">🌙 Dinner</button>
+        <button class="chip" data-type="snack">🍎 Snack</button>
+      </div>
+      <div class="filter-row">
+        <input id="search" type="search" placeholder="Search meals or ingredients…" />
+        <select id="diet">
+          <option value="">Any diet</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="vegan">Vegan</option>
+          <option value="high-protein">High protein</option>
+          <option value="dairy-free">Dairy free</option>
+          <option value="low-carb">Low carb</option>
+        </select>
+        <label class="check"><input type="checkbox" id="fits-only" /> Only meals that fit my budget</label>
+      </div>
+    </div>
+
+    <p id="result-count" class="muted small"></p>
+    <div id="meal-grid" class="meal-grid"></div>
+  </main>
+
+  <dialog id="meal-dialog" class="dialog"></dialog>
+
+  <div id="plan-bar" class="plan-bar" hidden>
+    <div class="wrap plan-bar-inner">
+      <span id="plan-bar-text"></span>
+      <a href="plan.html" class="btn btn-primary">Review my prep plan →</a>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/meals.js"></script>
+</body>
+</html>

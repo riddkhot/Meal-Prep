@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PrepWise · Meal Prep Made Simple</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div>
+          <p class="eyebrow">Meal prep, minus the guesswork</p>
+          <h1>Cook once on Sunday.<br />Eat well all week.</h1>
+          <p class="lead">Work out how many calories you need, choose prep-friendly meals that fit, and get a combined grocery list for the week.</p>
+          <div class="hero-actions">
+            <a href="calculator.html" class="btn btn-primary btn-lg">Start: Calculate my calories →</a>
+            <a href="meals.html" class="btn btn-ghost btn-lg">Browse meal ideas</a>
+          </div>
+          <p id="welcome-back" class="muted small" hidden></p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="box b1">🥣</div><div class="box b2">🌯</div>
+          <div class="box b3">🍛</div><div class="box b4">🥕</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section">
+      <h2 class="center">How it works</h2>
+      <div class="how-grid">
+        <a class="how-card" href="calculator.html">
+          <span class="how-num">1</span>
+          <h3>Know your calories</h3>
+          <p>Enter your age, height, weight, activity level and goal. You get a daily calorie target, a macro split, and a calorie budget for each meal.</p>
+        </a>
+        <a class="how-card" href="meals.html">
+          <span class="how-num">2</span>
+          <h3>Pick your meals</h3>
+          <p>Browse 14 recipes that keep well in the fridge. Filter by meal type or diet. Meals that fit your budget are labelled, or you can let us suggest a whole day.</p>
+        </a>
+        <a class="how-card" href="plan.html">
+          <span class="how-num">3</span>
+          <h3>Prep &amp; shop</h3>
+          <p>Choose how many days to prep for. You get daily totals compared with your target, a cooking order, and a grocery list with checkboxes.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="wrap section tips">
+      <h2 class="center">Basic meal prep tips</h2>
+      <div class="tip-grid">
+        <div class="tip"><b>🗓️ Pick a prep day</b><p>Set aside 1–2 hours, usually Sunday. Batch-cook grains and proteins first, since they take longest.</p></div>
+        <div class="tip"><b>📦 Use good containers</b><p>Glass containers with sectioned lids keep sauces separate and reheat evenly.</p></div>
+        <div class="tip"><b>❄️ Mind the fridge clock</b><p>Most cooked meals last 3–4 days. Freeze portions for later in the week.</p></div>
+        <div class="tip"><b>🥗 Keep crunch separate</b><p>Store dressings, granola and crispy toppings on the side until you eat.</p></div>
+        <div class="tip"><b>🔁 Rotate weekly</b><p>Swap 1–2 recipes each week so you don't burn out on the same meals.</p></div>
+        <div class="tip"><b>🌡️ Cool before sealing</b><p>Let food cool for about 30 minutes before you put lids on. This stops sogginess and condensation.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    renderShell("home");
+    const profile = getProfile();
+    if (profile) {
+      const el = document.getElementById("welcome-back");
+      el.hidden = false;
+      el.innerHTML = `Welcome back. Your target is <b>${fmt(profile.target)} kcal/day</b>. <a href="${planCount() ? "plan.html" : "meals.html"}">Continue where you left off →</a>`;
+    }
+  </script>
+</body>
+</html>
